@@ -24,8 +24,7 @@ public class App {
                 System.out.println("write 컨트롤러 호출 예정");
             }
             else if (cmd.equals("list")) {
-                // new ArticleListController().execute(sc, articleRepository);
-                System.out.println("list 컨트롤러 호출 예정");
+                new ArticleListController().execute(sc, articleRepository);
             }
             else if (cmd.equals("detail")) {
                 // new ArticleDetailController().execute(sc, articleRepository);
