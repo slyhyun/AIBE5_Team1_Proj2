@@ -6,6 +6,9 @@ public class Article {
     private String content;
     private String regDate;
 
+    // 기본 생성자
+    public Article() {}
+
     // 생성자
     public Article(int id, String title, String content, String regDate) {
         this.id = id;

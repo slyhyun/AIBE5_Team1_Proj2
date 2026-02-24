@@ -7,6 +7,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class ArticleRepository {
 
     // 파일에 저장하는 내부 로직
     private void saveToFile() {
-        try (FileWriter fw = new FileWriter(FILE_PATH)) {
+        try (FileWriter fw = new FileWriter(FILE_PATH, StandardCharsets.UTF_8)) {
             gson.toJson(articles, fw);
         } catch (IOException e) {
             System.out.println("파일 저장 중 오류가 발생했습니다.");
@@ -50,7 +51,7 @@ public class ArticleRepository {
         File file = new File(FILE_PATH);
         if (!file.exists()) return;
 
-        try (FileReader fr = new FileReader(file)) {
+        try (FileReader fr = new FileReader(file, StandardCharsets.UTF_8)) {
             Type listType = new TypeToken<ArrayList<Article>>(){}.getType();
             articles = gson.fromJson(fr, listType);
 
