@@ -37,6 +37,21 @@ public class ArticleRepository {
         return articles;
     }
 
+    // ID로 게시글 찾기
+    public Article findById(int id) {
+        for (Article article : articles) {
+            if (article.getId() == id) {
+                return article;
+            }
+        }
+        return null;
+    }
+
+    // 수정 후 저장
+    public void update() {
+        saveToFile();
+    }
+
     // 파일에 저장하는 내부 로직
     private void saveToFile() {
         try (FileWriter fw = new FileWriter(FILE_PATH, StandardCharsets.UTF_8)) {
