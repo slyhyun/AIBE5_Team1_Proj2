@@ -35,8 +35,7 @@ public class App {
                 System.out.println("detail 컨트롤러 호출 예정");
             }
             else if (rq.getAction().equals("update")) {
-                // new ArticleUpdateController().execute(sc, articleRepository);
-                System.out.println("update 컨트롤러 호출 예정");
+                new ArticleUpdateController().execute(sc, articleRepository, rq);
             }
             else if (rq.getAction().equals("delete")) {
                 // new ArticleDeleteController().execute(sc, articleRepository);
